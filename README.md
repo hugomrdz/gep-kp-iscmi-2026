@@ -32,7 +32,7 @@ make notebook
 python3 scripts/check_reference_results.py
 ```
 
-The prepared local distribution already contains these inputs. A fresh Git clone needs the `artifacts-v1` release assets. **The GitHub repository and release have not been published as part of this preparation.** Until the release is uploaded, restore from the supplied local bundles instead:
+Benchmark inputs and raw evaluations are available in the [artifacts-v1 release](https://github.com/hugomrdz/gep-kp-iscmi-2026/releases/tag/artifacts-v1). `make fetch` downloads the two bundles and verifies their checksums. To restore an offline copy instead:
 
 ```bash
 .venv/bin/python scripts/artifacts.py fetch all --source-dir /path/to/release-assets

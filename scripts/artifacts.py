@@ -199,9 +199,9 @@ def acquire_bundle(entry: dict, source_dir: Path | None) -> Path:
                         shutil.copyfileobj(stream, output, CHUNK_SIZE)
                 except (HTTPError, URLError, TimeoutError) as error:
                     raise ValueError(
-                        f"Cannot download {entry['url']}: {error}. The prepared artifacts-v1 release may "
-                        "not yet be published. Ask the authors for data.tar and results.tar, then run "
-                        "fetch --source-dir /path/to/bundles, or publish the prepared release assets first."
+                        f"Cannot download {entry['url']}: {error}. Check your connection and retry, "
+                        "or obtain data.tar and results.tar from the release or the authors, then run "
+                        "fetch --source-dir /path/to/bundles."
                     ) from error
             output.flush()
             check_file(temporary, entry)

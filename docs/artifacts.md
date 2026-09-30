@@ -5,10 +5,9 @@ tuning evidence, and compact result tables in Git. Two uncompressed tar bundles
 contain the frozen benchmark inputs and bulk evaluation records; their members
 are already compressed. This keeps oversized files out of ordinary Git history.
 
-The bundles are prepared locally in `release-assets/`. **The GitHub repository
-and `artifacts-v1` release have not been published by this preparation step.**
-The URLs in [`artifacts/manifest.json`](../artifacts/manifest.json) are the
-intended locations after the authors publish that release:
+The bundles are published in the [artifacts-v1 release](https://github.com/hugomrdz/gep-kp-iscmi-2026/releases/tag/artifacts-v1)
+and cached locally in `release-assets/`. The URLs in
+[`artifacts/manifest.json`](../artifacts/manifest.json) point to:
 
 - `https://github.com/hugomrdz/gep-kp-iscmi-2026/releases/download/artifacts-v1/data.tar`
 - `https://github.com/hugomrdz/gep-kp-iscmi-2026/releases/download/artifacts-v1/results.tar`
@@ -41,8 +40,7 @@ member before replacing any destination. Each replacement is an atomic rename.
 The extractor rejects absolute paths, traversal, links, duplicate members, and
 unlisted members. It does not extract through existing destination symlinks.
 `verify` checks restored members and any cached bundle against the frozen
-manifest; it does not contact the network. A download failure reports how to
-obtain or publish the prepared bundles rather than suggesting the release exists.
+manifest; it does not contact the network. A download failure reports retry and offline-restoration options.
 
 ## Rebuild the release assets
 
@@ -54,8 +52,8 @@ python3 scripts/artifacts.py pack
 
 Tar entry order, ownership, permissions, and timestamps are fixed. Repacking
 must reproduce the manifest's fingerprints; the helper refuses to replace those
-fingerprints with different scientific data. Upload the two prepared `.tar`
-files as release assets only when publishing is authorized. The ordinary Git
+fingerprints with different scientific data. For future artifact versions, publish both `.tar`
+files under a new release tag and retain the original frozen release. The ordinary Git
 repository intentionally excludes the bundles and their large extracted members.
 
 ## Benchmark provenance
