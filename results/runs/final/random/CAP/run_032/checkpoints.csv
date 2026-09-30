@@ -1,0 +1,7 @@
+phase,family,model_id,candidate_id,arm,run,master_seed,raw_requests,gene,orf_length,expression,simplified,train_mean_gap_ppm,unique_orfs,candidate_instance_evaluations
+final,RANDOM,RANDOM-CAP-032,,CAP,32,6041697867026647103,1872,/PK*+*1*11PPOTTOKKOWT,3,"pdiv(P, K)",P/K,7244.62678612334,611,845013
+final,RANDOM,RANDOM-CAP-032,,CAP,32,6041697867026647103,4096,/+*1W*-TT*KWKWWPOKWWT,13,"pdiv((1 + W), ((T * T) * ((W * K) - K)))",(W + 1)/(K*T**2*(W - 1)),7099.32837604458,1152,1593216
+final,RANDOM,RANDOM-CAP-032,,CAP,32,6041697867026647103,16384,--+PT*1++PKTPKP11OWTO,13,((P - T) - (((P + K) * (T + P)) + 1)),P - T - (K + P)*(P + T) - 1,6536.683792382205,3864,5343912
+final,RANDOM,RANDOM-CAP-032,,CAP,32,6041697867026647103,21280,--+PT*1++PKTPKP11OWTO,13,((P - T) - (((P + K) * (T + P)) + 1)),P - T - (K + P)*(P + T) - 1,6536.683792382205,4946,6840318
+final,RANDOM,RANDOM-CAP-032,,CAP,32,6041697867026647103,32768,--+PT*1++PKTPKP11OWTO,13,((P - T) - (((P + K) * (T + P)) + 1)),P - T - (K + P)*(P + T) - 1,6536.683792382205,7304,10101432
+final,RANDOM,RANDOM-CAP-032,,CAP,32,6041697867026647103,65536,--+PT*1++PKTPKP11OWTO,13,((P - T) - (((P + K) * (T + P)) + 1)),P - T - (K + P)*(P + T) - 1,6536.683792382205,13661,18893163

@@ -1,0 +1,16 @@
+{
+  "command": "[\"make\",\"analyze\"]",
+  "events": [],
+  "exit_status": 0,
+  "finish_utc": "2026-08-30T11:40:29.960729+00:00",
+  "interrupted": "false",
+  "measurement_basis": "direct_wall_clock",
+  "notes": "Times make analyze as one requested stage: src.analysis followed by src.figures.",
+  "numerical_threads_per_worker": 1,
+  "resumed": "false",
+  "scope": "Locked statistical analysis and figure generation",
+  "stage": "analysis_and_figures",
+  "start_utc": "2026-08-30T11:38:05.758465+00:00",
+  "wall_seconds": "144.202387750",
+  "worker_count": 1
+}

@@ -1,0 +1,6 @@
+".ID.","head_length","population_size","tournament_size","elite_fraction","crossover_rate","expected_mutations",".PARENT.","main_race_order","postselection_selected","postselection_order"
+46,"12","128","7","0.02","0.70","2",2,1,TRUE,1
+39,"12","256","7","0.005","0.70","3",32,2,TRUE,2
+49,"10","128","7","0.005","0.70","3",39,3,TRUE,3
+10,"10","512","7","0.01","0.70","3",NA,4,FALSE,NA
+2,"12","512","7","0.02","0.70","2",NA,5,FALSE,NA

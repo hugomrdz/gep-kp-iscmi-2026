@@ -1,0 +1,7 @@
+phase,family,model_id,candidate_id,arm,run,master_seed,raw_requests,gene,orf_length,expression,simplified,train_mean_gap_ppm,unique_orfs,candidate_instance_evaluations
+final,RANDOM,RANDOM-SCALE-018,,SCALE,18,3311699878478574527,1872,+-01+*//1-0WPLW1011L0,15,"((1 - ((pdiv(W, P) * 1) + pdiv((L - W), 0))) + 0)",(P*(zoo*(L - W) + 1) - W)/P,7244.580412784261,628,868524
+final,RANDOM,RANDOM-SCALE-018,,SCALE,18,3311699878478574527,4096,+-01+*//1-0WPLW1011L0,15,"((1 - ((pdiv(W, P) * 1) + pdiv((L - W), 0))) + 0)",(P*(zoo*(L - W) + 1) - W)/P,7244.580412784261,1204,1665132
+final,RANDOM,RANDOM-SCALE-018,,SCALE,18,3311699878478574527,16384,+P+L/1-P/PL10LW0P0P10,11,"(P + (L + pdiv(1, (P - pdiv(P, L)))))",(L + P*(L - 1)*(L + P))/(P*(L - 1)),5360.696645312718,4249,5876367
+final,RANDOM,RANDOM-SCALE-018,,SCALE,18,3311699878478574527,21280,+P+L/1-P/PL10LW0P0P10,11,"(P + (L + pdiv(1, (P - pdiv(P, L)))))",(L + P*(L - 1)*(L + P))/(P*(L - 1)),5360.696645312718,5413,7486179
+final,RANDOM,RANDOM-SCALE-018,,SCALE,18,3311699878478574527,32768,+P+L/1-P/PL10LW0P0P10,11,"(P + (L + pdiv(1, (P - pdiv(P, L)))))",(L + P*(L - 1)*(L + P))/(P*(L - 1)),5360.696645312718,8160,11285280
+final,RANDOM,RANDOM-SCALE-018,,SCALE,18,3311699878478574527,65536,+P+L/1-P/PL10LW0P0P10,11,"(P + (L + pdiv(1, (P - pdiv(P, L)))))",(L + P*(L - 1)*(L + P))/(P*(L - 1)),5360.696645312718,15709,21725547

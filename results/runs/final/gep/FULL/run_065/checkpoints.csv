@@ -1,0 +1,7 @@
+phase,family,model_id,candidate_id,arm,run,master_seed,raw_requests,gene,orf_length,expression,simplified,train_mean_gap_ppm,unique_orfs,candidate_instance_evaluations
+final,GEP,GEP-FULL-065,,FULL,65,6033008586475709634,1872,/PK**+W/OPTPWPT0L0KTO,3,"pdiv(P, K)",P/K,7244.62678612334,390,539370
+final,GEP,GEP-FULL-065,,FULL,65,6033008586475709634,4096,//K*LPL+-WO0L1TWW0TO0,7,"pdiv(pdiv((P * L), L), K)",P/K,7244.587488162549,760,1051080
+final,GEP,GEP-FULL-065,,FULL,65,6033008586475709634,16384,/1-*PPL*/1O1TW1LTP0PT,7,"pdiv(1, ((P * L) - P))",1/(P*(L - 1)),5360.696645312718,3792,5244336
+final,GEP,GEP-FULL-065,,FULL,65,6033008586475709634,21280,/1-*P+*++/PWPT0L1POW0,17,"pdiv(1, ((((W + P) + (T + 0)) * (pdiv(L, 1) * P)) - P))",1/(P*(L*(P + T + W) - 1)),4834.51160608477,5026,6950958
+final,GEP,GEP-FULL-065,,FULL,65,6033008586475709634,32768,/1-*P+*T+LWWWL0LP0LOK,13,"pdiv(1, (((T + (W + W)) * (L * W)) - P))",1/(L*W*(T + 2*W) - P),4691.664608203196,8641,11950503
+final,GEP,GEP-FULL-065,,FULL,65,6033008586475709634,65536,/1-*P+*TW+WLL00010010,13,"pdiv(1, (((T + W) * ((L + L) * W)) - P))",1/(2*L*W*(T + W) - P),4680.50634689579,19050,26346150

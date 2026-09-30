@@ -1,0 +1,26 @@
+{
+  "candidate_id": "irace_04",
+  "development_evidence": {
+    "mean_validation_rank": 2.575,
+    "paired_seeds": 10,
+    "pooled_validation_mean_gap_ppm": 5485.565862297821,
+    "survivor_configurations": 5,
+    "terminal_arms": [
+      "BASE",
+      "CAP",
+      "SCALE",
+      "FULL"
+    ],
+    "worst_arm_validation_mean_gap_ppm": 5810.767620799632
+  },
+  "parameters": {
+    "budget": 65536,
+    "crossover_rate": 0.7,
+    "elite_fraction": 0.01,
+    "expected_mutations": 3,
+    "head_length": 10,
+    "population_size": 512,
+    "tournament_size": 7
+  },
+  "selection_rule": "mean paired validation rank; pooled validation mean gap; worst-arm validation mean gap; ordered parameter tuple"
+}

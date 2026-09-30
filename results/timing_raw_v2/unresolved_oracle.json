@@ -1,0 +1,16 @@
+{
+  "command": "[\"../.venv/bin/python\",\"-m\",\"src.cli\",\"solve-unresolved\"]",
+  "events": [],
+  "exit_status": 0,
+  "finish_utc": "2026-08-30T11:37:36.630590+00:00",
+  "interrupted": "false",
+  "measurement_basis": "direct_wall_clock",
+  "notes": "Unchanged solve-unresolved command; four process workers, at most 60 seconds per instance under the locked rule.",
+  "numerical_threads_per_worker": 1,
+  "resumed": "false",
+  "scope": "HiGHS attempts for 263 unresolved Jooken instances",
+  "stage": "unresolved_oracle",
+  "start_utc": "2026-08-30T10:31:32.649792+00:00",
+  "wall_seconds": "3963.998386666",
+  "worker_count": 4
+}

@@ -1,0 +1,16 @@
+{
+  "command": "[\"make\",\"notebook\"]",
+  "events": [],
+  "exit_status": 0,
+  "finish_utc": "2026-08-30T11:57:04.978831+00:00",
+  "interrupted": "false",
+  "measurement_basis": "direct_wall_clock",
+  "notes": "Resumed after the sandbox denied the local Jupyter kernel socket; same locked notebook command, no source or protocol change.",
+  "numerical_threads_per_worker": 1,
+  "resumed": "true",
+  "scope": "Resumed build and execution of the ISCMI 2026 V2 walkthrough notebook",
+  "stage": "notebook_execution_resume",
+  "start_utc": "2026-08-30T11:57:01.370071+00:00",
+  "wall_seconds": "3.608582334",
+  "worker_count": 1
+}

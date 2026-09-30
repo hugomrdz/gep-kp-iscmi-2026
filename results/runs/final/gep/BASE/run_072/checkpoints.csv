@@ -1,0 +1,7 @@
+phase,family,model_id,candidate_id,arm,run,master_seed,raw_requests,gene,orf_length,expression,simplified,train_mean_gap_ppm,unique_orfs,candidate_instance_evaluations
+final,GEP,GEP-BASE-072,,BASE,72,12563071758645099756,1872,++--0/-*W-WWWP1P010PP,17,"((((P * 1) - W) + 0) + (pdiv((P - 0), W) - (W - W)))",P + P/W - W,7168.181426537633,514,710862
+final,GEP,GEP-BASE-072,,BASE,72,12563071758645099756,4096,++--0/-*WPWWWP1PW10PP,15,"((((P * 1) - W) + 0) + (pdiv(P, W) - (W - W)))",P + P/W - W,7168.181426537633,1107,1530981
+final,GEP,GEP-BASE-072,,BASE,72,12563071758645099756,16384,/*-1W/+P1PW1WO1W010OW,11,"pdiv((1 * W), (pdiv(P, 1) - (P + W)))",-1,5389.566776455149,6869,9499827
+final,GEP,GEP-BASE-072,,BASE,72,12563071758645099756,21280,/*-1W*+P1PW00W1W1W0OP,11,"pdiv((1 * W), ((P * 1) - (P + W)))",-1,5389.566776455149,9152,12657216
+final,GEP,GEP-BASE-072,,BASE,72,12563071758645099756,32768,/**1W-P*P+WWP0PO1O11O,13,"pdiv((1 * W), ((((W + P) * W) - P) * P))",-W/(P*(P - W*(P + W))),4383.092786716596,13270,18352410
+final,GEP,GEP-BASE-072,,BASE,72,12563071758645099756,65536,/**1W-P*P+WWW00000000,13,"pdiv((1 * W), ((((W + W) * W) - P) * P))",-W/(P*(P - 2*W**2)),4354.764537166197,23210,32099430

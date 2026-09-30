@@ -1,0 +1,36 @@
+# Local environments, caches, and generated runtime state.
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.nbc
+*.nbi
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.DS_Store
+tmp/
+jupyter/
+.matplotlib/
+matplotlib/
+mplconfig/
+.cache/
+
+# Release assets hold frozen inputs and bulk evaluation records.
+/release-assets/
+/data/knapsack.zip
+/data/pisinger/*.tgz
+/results/confirmatory/evaluations_jooken_v2.csv.gz
+/results/confirmatory/row_order/permutation_*.csv.gz
+/results/transfer/evaluations_pisinger_v2.csv.gz
+
+# Keep compact scientific records, results/runs/, and tuning/work/ tracked.
+# LaTeX build products are reproducible, machine-local artifacts.
+*.aux
+*.log
+!results/assertions_v2.log
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk

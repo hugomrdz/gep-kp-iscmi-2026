@@ -1,0 +1,7 @@
+phase,family,model_id,candidate_id,arm,run,master_seed,raw_requests,gene,orf_length,expression,simplified,train_mean_gap_ppm,unique_orfs,candidate_instance_evaluations
+final,GEP,GEP-CAP-039,,CAP,39,7059737493235238365,1872,-/1/WPT+1KPO0TOTTOP1W,7,"(pdiv(pdiv(P, T), W) - 1)",P/(T*W) - 1,7244.573910454751,444,614052
+final,GEP,GEP-CAP-039,,CAP,39,7059737493235238365,4096,/-+PWPTK*KT0WWK11TWPT,7,"pdiv((P - W), (P + T))",(P - W)/(P + T),7190.596728927027,1006,1391298
+final,GEP,GEP-CAP-039,,CAP,39,7059737493235238365,16384,/-+PW++TPPP1PT1W1PPO1,11,"pdiv((P - W), ((T + P) + (P + P)))",(P - W)/(3*P + T),7092.457098737045,5094,7045002
+final,GEP,GEP-CAP-039,,CAP,39,7059737493235238365,21280,/-+PW*++/PWPWKOK1OOTK,15,"pdiv((P - W), (((P + W) * pdiv(K, O)) + (P + W)))",O*(P - W)/((K + O)*(P + W)),6979.80334851234,6945,9604935
+final,GEP,GEP-CAP-039,,CAP,39,7059737493235238365,32768,/-+PW*+P-TP1O1P0PWPKP,13,"pdiv((P - W), ((P * (1 - O)) + (T + P)))",(P - W)/(-P*(O - 1) + P + T),6636.2530618617975,11945,16519935
+final,GEP,GEP-CAP-039,,CAP,39,7059737493235238365,65536,/-*PWT*P-/PPO00O1KPP0,13,"pdiv((P - W), (T * (P * (pdiv(P, O) - P))))",O*(-P + W)/(P**2*T*(O - 1)),5045.836729145613,23241,32142303

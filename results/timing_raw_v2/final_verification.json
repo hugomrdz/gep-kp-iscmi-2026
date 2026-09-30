@@ -1,0 +1,16 @@
+{
+  "command": "[\"make\",\"verify\"]",
+  "events": [],
+  "exit_status": 0,
+  "finish_utc": "2026-08-30T11:57:28.863039+00:00",
+  "interrupted": "false",
+  "measurement_basis": "direct_wall_clock",
+  "notes": "Times the unchanged make verify target after all confirmatory outputs and notebook execution.",
+  "numerical_threads_per_worker": 1,
+  "resumed": "false",
+  "scope": "Final protocol, provenance, run-matrix, evaluation, and artifact verification",
+  "stage": "final_verification",
+  "start_utc": "2026-08-30T11:57:25.196079+00:00",
+  "wall_seconds": "3.666891792",
+  "worker_count": 1
+}

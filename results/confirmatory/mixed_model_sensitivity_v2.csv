@@ -1,0 +1,17 @@
+term,estimate_ppm,standard_error_ppm,ci95_low_ppm,ci95_high_ppm,converged,note
+Intercept,5213.798887047521,611.7055981522145,4014.8779455276494,6412.719828567393,True,crossed sparse variance components for seed and sibling group
+"C(arm, Treatment(reference='BASE'))[T.CAP]",238.19832503531777,90.76626635803038,60.29971196240868,416.0969381082268,True,crossed sparse variance components for seed and sibling group
+"C(arm, Treatment(reference='BASE'))[T.FULL]",-308.1672192055237,90.76626635803055,-486.0658322784331,-130.26860613261425,True,crossed sparse variance components for seed and sibling group
+"C(arm, Treatment(reference='BASE'))[T.SCALE]",-163.58733393584103,90.76626635801584,-341.4859470087216,14.311279137039548,True,crossed sparse variance components for seed and sibling group
+C(region)[T.OOD-c],-1791.4790855533242,741.4362423686543,-3244.667417428597,-338.29075367805126,True,crossed sparse variance components for seed and sibling group
+C(region)[T.OOD-n],885.7200567699119,814.7837447009019,-711.2267380325341,2482.6668515723577,True,crossed sparse variance components for seed and sibling group
+C(region)[T.OOD-nc],-1524.21813055406,1081.6591442426322,-3644.2310968180345,595.7948357099147,True,crossed sparse variance components for seed and sibling group
+"C(arm, Treatment(reference='BASE'))[T.CAP]:C(region)[T.OOD-c]",1118.9396109656384,110.77061381569378,901.8331973414837,1336.0460245897932,True,crossed sparse variance components for seed and sibling group
+"C(arm, Treatment(reference='BASE'))[T.FULL]:C(region)[T.OOD-c]",961.6248437667996,110.77061381569389,744.5184301426447,1178.7312573909546,True,crossed sparse variance components for seed and sibling group
+"C(arm, Treatment(reference='BASE'))[T.SCALE]:C(region)[T.OOD-c]",469.37043751517956,110.77061381567358,252.2640238910644,686.4768511392947,True,crossed sparse variance components for seed and sibling group
+"C(arm, Treatment(reference='BASE'))[T.CAP]:C(region)[T.OOD-n]",-483.5509960256516,121.7287345425549,-722.134931612696,-244.9670604386072,True,crossed sparse variance components for seed and sibling group
+"C(arm, Treatment(reference='BASE'))[T.FULL]:C(region)[T.OOD-n]",-169.2324735756601,121.7287345425549,-407.81640916270453,69.35146201138431,True,crossed sparse variance components for seed and sibling group
+"C(arm, Treatment(reference='BASE'))[T.SCALE]:C(region)[T.OOD-n]",-11.134665706194228,121.72873454254396,-249.7186012932172,227.44926988082875,True,crossed sparse variance components for seed and sibling group
+"C(arm, Treatment(reference='BASE'))[T.CAP]:C(region)[T.OOD-nc]",1256.3049806383613,161.59993334577067,939.5749313765774,1573.0350299001452,True,crossed sparse variance components for seed and sibling group
+"C(arm, Treatment(reference='BASE'))[T.FULL]:C(region)[T.OOD-nc]",1005.266939798882,161.59993334577072,688.5368905370981,1321.996989060666,True,crossed sparse variance components for seed and sibling group
+"C(arm, Treatment(reference='BASE'))[T.SCALE]:C(region)[T.OOD-nc]",542.3414824356039,161.59993334572798,225.61143317390372,859.0715316973041,True,crossed sparse variance components for seed and sibling group

@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this software or its experimental results, please cite the accompanying ISCMI 2026 paper."
+type: software
+title: "GEP-KP: Reproduction artifacts for ISCMI 2026"
+authors:
+  - family-names: Moreno-Rodriguez
+    given-names: Hugo Abel
+    orcid: "https://orcid.org/0009-0005-6706-2120"
+  - family-names: Ortiz-Bayliss
+    given-names: José Carlos
+    orcid: "https://orcid.org/0000-0003-3408-2166"
+repository-code: "https://github.com/hugomrdz/gep-kp-iscmi-2026"
+url: "https://github.com/hugomrdz/gep-kp-iscmi-2026"
+license: MIT
+preferred-citation:
+  type: conference-paper
+  title: "Evolving Interpretable Priority Rules for Hard 0–1 Knapsack Instances"
+  authors:
+    - family-names: Moreno-Rodriguez
+      given-names: Hugo Abel
+    - family-names: Ortiz-Bayliss
+      given-names: José Carlos
+  year: 2026
+  conference:
+    name: "ISCMI 2026"
+  url: "https://github.com/hugomrdz/gep-kp-iscmi-2026"

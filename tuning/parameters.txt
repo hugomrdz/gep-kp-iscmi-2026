@@ -1,0 +1,7 @@
+# name               switch                  type  values
+head_length          "--head-length "         c    (6, 8, 10, 12)
+population_size      "--population-size "     c    (128, 256, 512)
+tournament_size      "--tournament-size "     c    (2, 4, 7)
+elite_fraction       "--elite-fraction "      c    (0.005, 0.01, 0.02)
+crossover_rate       "--crossover-rate "      c    (0.50, 0.70, 0.90)
+expected_mutations   "--expected-mutations "  c    (1, 2, 3)

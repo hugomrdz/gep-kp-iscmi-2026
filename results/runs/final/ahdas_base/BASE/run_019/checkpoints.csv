@@ -1,0 +1,5 @@
+phase,family,model_id,candidate_id,arm,run,master_seed,raw_requests,gene,orf_length,expression,simplified,train_mean_gap_ppm,unique_orfs,candidate_instance_evaluations,historical_objective
+final,AHDAS_BASE,AHDAS_BASE-BASE-019,,BASE,19,1203485650425470997,1872,*+++/-P/1PWP0PWP1,15,"(((pdiv(P, W) + 1) + pdiv(P, W)) * ((P - 0) + P))",2*P*(2*P + W)/W,9888.699058297028,276,381708,1.084963370711981
+final,AHDAS_BASE,AHDAS_BASE-BASE-019,,BASE,19,1203485650425470997,4096,*++-+-P/1POPP1WPO,15,"(((pdiv(1, W) - 1) + (P + O)) * ((P - P) + P))",P*(W*(O + P - 1) + 1)/W,8469.711581071404,686,948738,1.0863822641905565
+final,AHDAS_BASE,AHDAS_BASE-BASE-019,,BASE,19,1203485650425470997,16384,/*+-+-W/011W11PO1,15,"pdiv(((pdiv(1, P) - 0) * (1 + 1)), ((W - 1) + W))",2/(P*(2*W - 1)),4846.713261789904,4072,5631576,1.0914400383824643
+final,AHDAS_BASE,AHDAS_BASE-BASE-019,,BASE,19,1203485650425470997,21280,/*+-+-W/011W11PO1,15,"pdiv(((pdiv(1, P) - 0) * (1 + 1)), ((W - 1) + W))",2/(P*(2*W - 1)),4846.713261789904,5942,8217786,1.0914400383824643

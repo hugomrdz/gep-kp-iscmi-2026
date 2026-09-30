@@ -1,0 +1,5 @@
+#!/bin/sh
+# The release keeps its virtual environment inside the standalone repository.
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+PYTHON_EXECUTABLE=${ISCMI_PYTHON:-"$SCRIPT_DIR/../.venv/bin/python"}
+exec "$PYTHON_EXECUTABLE" "$SCRIPT_DIR/target_runner.py" "$@"

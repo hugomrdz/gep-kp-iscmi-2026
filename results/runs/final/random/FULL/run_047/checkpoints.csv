@@ -1,0 +1,7 @@
+phase,family,model_id,candidate_id,arm,run,master_seed,raw_requests,gene,orf_length,expression,simplified,train_mean_gap_ppm,unique_orfs,candidate_instance_evaluations
+final,RANDOM,RANDOM-FULL-047,,FULL,47,4753103378682572739,1872,/P*+TW/P1-0WWTOT0PLT0,9,"pdiv(P, ((W + pdiv(P, 1)) * T))",P/(T*(P + W)),7244.604245762654,513,709479
+final,RANDOM,RANDOM-FULL-047,,FULL,47,4753103378682572739,4096,//-/PW+*0-1OLPLT0WOOL,15,"pdiv(pdiv(pdiv((O * L), 0), P), (W - ((P - L) + 1)))",zoo*L*O/(P*(L - P + W - 1)),5377.626171339517,1006,1391298
+final,RANDOM,RANDOM-FULL-047,,FULL,47,4753103378682572739,16384,//-/PW+*0-1OLPLT0WOOL,15,"pdiv(pdiv(pdiv((O * L), 0), P), (W - ((P - L) + 1)))",zoo*L*O/(P*(L - P + W - 1)),5377.626171339517,3348,4630284
+final,RANDOM,RANDOM-FULL-047,,FULL,47,4753103378682572739,21280,//-/PW+*0-1OLPLT0WOOL,15,"pdiv(pdiv(pdiv((O * L), 0), P), (W - ((P - L) + 1)))",zoo*L*O/(P*(L - P + W - 1)),5377.626171339517,4208,5819664
+final,RANDOM,RANDOM-FULL-047,,FULL,47,4753103378682572739,32768,//-/PW+*0-1OLPLT0WOOL,15,"pdiv(pdiv(pdiv((O * L), 0), P), (W - ((P - L) + 1)))",zoo*L*O/(P*(L - P + W - 1)),5377.626171339517,6279,8683857
+final,RANDOM,RANDOM-FULL-047,,FULL,47,4753103378682572739,65536,+P/K-P1K/LP1TPWT00LKP,7,"(P + pdiv(K, (P - 1)))",(K + P*(P - 1))/(P - 1),4440.127539799991,11963,16544829

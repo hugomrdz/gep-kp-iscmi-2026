@@ -1,0 +1,22 @@
+{
+  "command": "[\"../.venv/bin/python\",\"-m\",\"src.cli\",\"evaluate\"]",
+  "events": [
+    {
+      "event": "pisinger_first_batch",
+      "line": "transfer evaluation: knapPI_1_10000_1000.csv (100 cases)",
+      "observed_utc": "2026-08-30T09:33:29.038798+00:00"
+    }
+  ],
+  "exit_status": 0,
+  "finish_utc": "2026-08-30T10:30:31.495058+00:00",
+  "interrupted": "false",
+  "measurement_basis": "direct_wall_clock",
+  "notes": "Exact locked evaluate_all pipeline; internal boundaries reconstructed from atomic outputs and the first transfer progress marker.",
+  "numerical_threads_per_worker": 1,
+  "resumed": "false",
+  "scope": "Jooken original, ten row permutations, and Pisinger transfer",
+  "stage": "locked_evaluation",
+  "start_utc": "2026-08-30T09:19:33.619696+00:00",
+  "wall_seconds": "4257.899548000",
+  "worker_count": 1
+}

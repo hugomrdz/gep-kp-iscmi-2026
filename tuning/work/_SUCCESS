@@ -1,0 +1,4 @@
+experiments=2000
+main_race_elite_count_written=5
+postselection_count=3
+completed_log=irace_recovered.Rdata

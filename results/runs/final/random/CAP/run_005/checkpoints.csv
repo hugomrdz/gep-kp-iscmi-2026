@@ -1,0 +1,7 @@
+phase,family,model_id,candidate_id,arm,run,master_seed,raw_requests,gene,orf_length,expression,simplified,train_mean_gap_ppm,unique_orfs,candidate_instance_evaluations
+final,RANDOM,RANDOM-CAP-005,,CAP,5,945700664457269749,1872,/PK1P-W-KTK1OTOT0OKKW,3,"pdiv(P, K)",P/K,7244.62678612334,576,796608
+final,RANDOM,RANDOM-CAP-005,,CAP,5,945700664457269749,4096,/PK1P-W-KTK1OTOT0OKKW,3,"pdiv(P, K)",P/K,7244.62678612334,1108,1532364
+final,RANDOM,RANDOM-CAP-005,,CAP,5,945700664457269749,16384,/1*K--/+0+0PPOTKOKO00,15,"pdiv(1, (K * (((P + P) - 0) - pdiv((O + T), 0))))",1/(K*(2*P + zoo*(O + T))),6124.515806769734,3736,5166888
+final,RANDOM,RANDOM-CAP-005,,CAP,5,945700664457269749,21280,/1*K--/+0+0PPOTKOKO00,15,"pdiv(1, (K * (((P + P) - 0) - pdiv((O + T), 0))))",1/(K*(2*P + zoo*(O + T))),6124.515806769734,4754,6574782
+final,RANDOM,RANDOM-CAP-005,,CAP,5,945700664457269749,32768,+/PK-W/*0/WWTTKKK00T1,13,"(pdiv(K, (W - pdiv((pdiv(W, T) * W), 0))) + P)",(K*T + P*W*(T + zoo*W))/(W*(T + zoo*W)),4537.471937340428,7134,9866322
+final,RANDOM,RANDOM-CAP-005,,CAP,5,945700664457269749,65536,+/PK-W/*0/WWTTKKK00T1,13,"(pdiv(K, (W - pdiv((pdiv(W, T) * W), 0))) + P)",(K*T + P*W*(T + zoo*W))/(W*(T + zoo*W)),4537.471937340428,13621,18837843

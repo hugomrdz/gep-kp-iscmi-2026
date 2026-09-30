@@ -1,0 +1,8 @@
+{
+  "files": {
+    "checkpoints.csv": "c4b3b80592194b897e2d89fcbfc444afad73b3dd683a4d571a2c395a7bc1a8df",
+    "history.csv": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "meta.json": "48271fdb64dab8565ebf19a0cfed66f5e667080dff4242272bddd26fd40a00fa",
+    "model.csv": "f9f88f71ac899ecdd04c8415676e2d8e7adf95536db4f88337dfbfe3914ae77c"
+  }
+}

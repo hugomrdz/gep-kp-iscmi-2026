@@ -1,0 +1,2 @@
+# The frozen protocol verifies byte-level hashes, including line endings.
+* -text

@@ -1,0 +1,104 @@
+{
+  "groups": {
+    "data": {
+      "bytes": 540405760,
+      "filename": "data.tar",
+      "members": [
+        {
+          "bytes": 21305404,
+          "path": "data/knapsack.zip",
+          "sha256": "68ef9b6be17fbc37f303a250aa79cacfcbe7167d5f0b83f8f96c60d666f0fb26"
+        },
+        {
+          "bytes": 46359335,
+          "path": "data/pisinger/hardinstances_pisinger.tgz",
+          "sha256": "e30971629f84bbd020a6de4fa9cd70e462ef6a9291ae65cb601cc79dc64bd097"
+        },
+        {
+          "bytes": 324559299,
+          "path": "data/pisinger/largecoeff_pisinger.tgz",
+          "sha256": "cd4827c74bbd0b988bf5aaefe4919004730e6ddcdb66b57a1f96f9a6c812f4a8"
+        },
+        {
+          "bytes": 148168396,
+          "path": "data/pisinger/smallcoeff_pisinger.tgz",
+          "sha256": "e31a402af0609fe053afa56533f79cd15fa54c20172345829d65245068acf63d"
+        }
+      ],
+      "sha256": "8ec8a3176f0ef5f8fb209a5d2f41b91b92c2711461d0a139e5787a9065405d42",
+      "url": "https://github.com/hugomrdz/gep-kp-iscmi-2026/releases/download/artifacts-v1/data.tar"
+    },
+    "results": {
+      "bytes": 1509263360,
+      "filename": "results.tar",
+      "members": [
+        {
+          "bytes": 276108382,
+          "path": "results/confirmatory/evaluations_jooken_v2.csv.gz",
+          "sha256": "75d05bd5f0368f4d96b3860ef72d844dd88c81409532a34e437351eaa84d96cc"
+        },
+        {
+          "bytes": 47756289,
+          "path": "results/confirmatory/row_order/permutation_01.csv.gz",
+          "sha256": "46df810cb77d87f08efe08e4a3b7ff21a5751ffb8ed22ba4e49a902e40e3efa7"
+        },
+        {
+          "bytes": 47766250,
+          "path": "results/confirmatory/row_order/permutation_02.csv.gz",
+          "sha256": "9100c5affebb74a0487dab39859fff16bd756d8d27631ef56d57a1cc57f2ebb2"
+        },
+        {
+          "bytes": 47767840,
+          "path": "results/confirmatory/row_order/permutation_03.csv.gz",
+          "sha256": "e1d436fd83139c5f6b39993f329ca68b3d52d94416a8e746450c7de7008edff7"
+        },
+        {
+          "bytes": 47760337,
+          "path": "results/confirmatory/row_order/permutation_04.csv.gz",
+          "sha256": "319326c8dd9e76b2f2993b0a83b91151db43181aee2b0a0b1580450f7eb7e889"
+        },
+        {
+          "bytes": 47762388,
+          "path": "results/confirmatory/row_order/permutation_05.csv.gz",
+          "sha256": "1028a9999fbeb97aa0bad8e376c5371071567de4752f685689b3959a13e39c58"
+        },
+        {
+          "bytes": 47757774,
+          "path": "results/confirmatory/row_order/permutation_06.csv.gz",
+          "sha256": "c874dfd7c003821bd761ba64bec7396905ca5dda12bb2bf55c5b5072f70bc429"
+        },
+        {
+          "bytes": 47758672,
+          "path": "results/confirmatory/row_order/permutation_07.csv.gz",
+          "sha256": "b9e9db60eb933e6bcb5102c7793894c9dadba0c771f0c1396bc56deb88acb253"
+        },
+        {
+          "bytes": 47761246,
+          "path": "results/confirmatory/row_order/permutation_08.csv.gz",
+          "sha256": "449a76329c49d19f66a995ebfe092bba75a5f11d0413ccecc679163a2251f166"
+        },
+        {
+          "bytes": 47758941,
+          "path": "results/confirmatory/row_order/permutation_09.csv.gz",
+          "sha256": "f791357dee6b0b8beffd0bf059d82604e543af3c75ccb8105b275ab83ea1636f"
+        },
+        {
+          "bytes": 47769623,
+          "path": "results/confirmatory/row_order/permutation_10.csv.gz",
+          "sha256": "a55619007462ffe246ea9a7507ee01337cbf67b9d88c977673267910355db824"
+        },
+        {
+          "bytes": 755521226,
+          "path": "results/transfer/evaluations_pisinger_v2.csv.gz",
+          "sha256": "d3f06cbc73efd16311c72537804a9a7dc6e9de83d3a66bbf5305ebc4ada8ecb5"
+        }
+      ],
+      "sha256": "247d438188e3e95e04241a9dd8a3dc1b044d90e206a5237486cc869c95fa0c69",
+      "url": "https://github.com/hugomrdz/gep-kp-iscmi-2026/releases/download/artifacts-v1/results.tar"
+    }
+  },
+  "publication_status": "not_published",
+  "release_tag": "artifacts-v1",
+  "repository": "https://github.com/hugomrdz/gep-kp-iscmi-2026",
+  "schema_version": 1
+}

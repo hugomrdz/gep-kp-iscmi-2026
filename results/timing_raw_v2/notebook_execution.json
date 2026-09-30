@@ -1,0 +1,16 @@
+{
+  "command": "[\"make\",\"notebook\"]",
+  "events": [],
+  "exit_status": 2,
+  "finish_utc": "2026-08-30T11:40:42.140733+00:00",
+  "interrupted": "false",
+  "measurement_basis": "direct_wall_clock",
+  "notes": "Times make notebook, including local kernel registration, notebook generation, and execution.",
+  "numerical_threads_per_worker": 1,
+  "resumed": "false",
+  "scope": "Build and execute the ISCMI 2026 V2 walkthrough notebook",
+  "stage": "notebook_execution",
+  "start_utc": "2026-08-30T11:40:41.366591+00:00",
+  "wall_seconds": "0.774056834",
+  "worker_count": 1
+}

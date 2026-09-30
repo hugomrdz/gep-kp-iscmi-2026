@@ -1,0 +1,17 @@
+{
+  "capacity": 10000000000,
+  "certified_optimal": false,
+  "certified_optimum": null,
+  "elapsed_seconds": 60.01121154194698,
+  "incumbent_profit_lower_bound": 10000008376,
+  "incumbent_weight": 9999999995,
+  "mip_gap": 4.140996531501305e-07,
+  "mip_node_count": 65190,
+  "name": "n_1000_c_10000000000_g_14_f_0.3_eps_0.001_s_100",
+  "objective_upper_bound": 10000012517,
+  "solver": "scipy.optimize.milp/HiGHS",
+  "solver_threads": 1,
+  "status": 1,
+  "status_message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+  "time_limit_seconds": 60.0
+}

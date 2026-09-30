@@ -1,0 +1,14 @@
+PASS history: 35 V1 files unchanged
+PASS data: archive hash and 3240 unique instance files validated
+PASS data: 2977 certified and 263 unresolved cases validated
+PASS split: 1038 train, 345 validation, 345 ID, 1249 OOD, 263 unresolved
+PASS split: every ID group retains all three s siblings
+PASS split: four balanced development folds contain 87/87/86/86 groups
+PASS permutations: 18570 fixed rows use root seed 20260905
+PASS irace scenarios: 320 rows form 80 complete four-arm blocks
+PASS power ranker: alpha=0.25, beta=0.25 selected on validation only
+PASS smoke BASE: 10000 genes, 25 scalar/batch/independent audits, deterministic run
+PASS smoke CAP: 10000 genes, 25 scalar/batch/independent audits, deterministic run
+PASS smoke SCALE: 10000 genes, 25 scalar/batch/independent audits, deterministic run
+PASS smoke FULL: 10000 genes, 25 scalar/batch/independent audits, deterministic run
+PASS smoke baselines: DEF, MAXP, MAXPW, and MINW expressions reproduced

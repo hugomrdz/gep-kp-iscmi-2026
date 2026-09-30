@@ -1,0 +1,22 @@
+{
+  "results/confirmatory/contrasts_v2.csv": "b6a619b636e6a6604fc7f3b066516d76188e607de3ed8d2463551a3c8586ca92",
+  "results/confirmatory/control_contrasts_v2.csv": "20c335b320349dd4d332b991602246ef817c57a1669e6961f3cbbdaa2be50fe6",
+  "results/confirmatory/control_summary_v2.csv": "33da89db86f28b9d8a15c3a17c5a53264bca4e97a5e8a81d9138e8ebcc216d7a",
+  "results/confirmatory/evaluation_manifest_v2.csv": "a3d5d58ab9e83af9e42c7b46a678a5b90fe2a66775acb13bddff12bcf3550f7a",
+  "results/confirmatory/friedman_v2.csv": "3743a12072682f7d0d1634da84f0b9d1a9e96c9cd5dee62eebe798989601b57b",
+  "results/confirmatory/headline_bootstrap_v2.csv.gz": "ad39f265767a8177d9d4c4ec27a9e235852d2e19bee5ce3a4b29a755a3380fa1",
+  "results/confirmatory/method_summary_v2.csv": "addb385b3f4aad87683e4714dabe0bab282d6f3d94fce2c9bf819ec370c6b0ba",
+  "results/confirmatory/mixed_model_sensitivity_v2.csv": "68dca30eb7a1b0d4f754e47022818a665fd288703d4817d7f28f5d2d02943495",
+  "results/confirmatory/posthoc_v2.csv": "842fcb71ff3bb2de462be37fb7fd5db5f8ca45bfd4ffe6b45f8fb112b566462c",
+  "results/confirmatory/row_order_summary_v2.csv": "15d0dc4a397f934703d844d5874cc3e4a5f7417609e845d41288e56b46e8979b",
+  "results/confirmatory/run_summary_v2.csv.gz": "e976ca1e225605a19d71760fe27be5ff6f15791cc733387f91181692cc7cb296",
+  "results/confirmatory/statistics_v2.csv": "bb0d3a085c9c5b8dd117494c2b112964ef03dad3bdeed5670a464c6ac466b7f9",
+  "results/confirmatory/summary_v2.json": "28928903c053b53a311efc1d310162a7a9ede9a6f12b9c7169c2926cfc6bb53e",
+  "results/confirmatory/unresolved_cases_v2.csv.gz": "4cfd60e3f490bc715f341d7090eb0006261554bd1fd42f9be4a2f22d7bebf3a7",
+  "results/confirmatory/unresolved_highs_v2.csv": "849f783a1ad06721f2399cf19b92ab2a5418679b80678f3ad86449461335bbea",
+  "results/confirmatory/unresolved_summary_v2.csv": "bb269481919296959b25af4137b9b6a7e262e3c409ec20bb62b4dbc25333b0d6",
+  "results/figure_data/anytime_v2.csv": "0e393033cf82983cc02e46289faab23b69474ba6a9b3c055b3fd687fd28b3535",
+  "results/figure_data/generalization_v2.csv": "addb385b3f4aad87683e4714dabe0bab282d6f3d94fce2c9bf819ec370c6b0ba",
+  "results/figure_data/headline_bar_v2.csv": "591dcd469326c63406485c5008e14711cad327af8561f74a20b7e4b2dc6746f1",
+  "results/transfer/transfer_summary_v2.csv": "542bdebba26887a35651fc19d15cc4542ba45b6550893aff402a09945c3b0e01"
+}
