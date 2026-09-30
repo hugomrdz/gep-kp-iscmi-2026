@@ -1,8 +1,10 @@
 # GEP-KP — ISCMI 2026
 
-Reproduction package for **Evolving Interpretable Priority Rules for Hard 0–1 Knapsack Instances**, by Hugo Abel Moreno-Rodriguez and José Carlos Ortiz-Bayliss, ISCMI 2026.
+Reproduction package for **Beyond Fixed Greedy Rules: Evolving Interpretable Heuristics for Hard Knapsack Instances**, by Hugo Abel Moreno-Rodriguez and José Carlos Ortiz-Bayliss, ISCMI 2026.
 
 Repository: <https://github.com/hugomrdz/gep-kp-iscmi-2026>
+
+[Read the final paper](iscmi2026_HugoMoreno.pdf).
 
 This repository contains the final `iscmi2026_v2` experiment, its frozen inputs and results, and the three corrected paper figures. The original scientific implementation, seeds, partitions, selected hyperparameters, and protocol approval are preserved. Four explicitly recorded packaging changes make the code work as a standalone repository.
 

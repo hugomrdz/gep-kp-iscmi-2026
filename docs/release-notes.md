@@ -1,4 +1,4 @@
-Frozen reproduction inputs for “Evolving Interpretable Priority Rules for Hard 0–1 Knapsack Instances” (ISCMI 2026).
+Frozen reproduction inputs for “Beyond Fixed Greedy Rules: Evolving Interpretable Heuristics for Hard Knapsack Instances” (ISCMI 2026).
 
 - `data.tar`: the exact Jooken and Pisinger benchmark archives used by the experiment.
 - `results.tar`: original Jooken evaluations, ten row-order permutation files, and Pisinger transfer evaluations.

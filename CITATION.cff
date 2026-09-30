@@ -14,7 +14,7 @@ url: "https://github.com/hugomrdz/gep-kp-iscmi-2026"
 license: MIT
 preferred-citation:
   type: conference-paper
-  title: "Evolving Interpretable Priority Rules for Hard 0–1 Knapsack Instances"
+  title: "Beyond Fixed Greedy Rules: Evolving Interpretable Heuristics for Hard Knapsack Instances"
   authors:
     - family-names: Moreno-Rodriguez
       given-names: Hugo Abel
