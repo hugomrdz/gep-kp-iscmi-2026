@@ -1,0 +1,63 @@
+{
+  "pdf_sha256": "8b74af2b5f232866677c37e6c4a80ce097e851531de396a2c8ce294fb1b3e8c9",
+  "pages": 5,
+  "page_size_points": [
+    612,
+    792
+  ],
+  "embedded_subset_unicode_fonts": 24,
+  "figures": 3,
+  "tables": 5,
+  "bibliography_entries": 13,
+  "first_citation_order_correct": true,
+  "title_authors_abstract_keywords_unchanged": true,
+  "section_structure_unchanged": true,
+  "sections_II_A_through_II_C_and_III_B_through_III_C_byte_identical": true,
+  "tables_I_II_III_V_byte_identical": true,
+  "class_and_three_figures_byte_identical": true,
+  "all_source_assets_local": true,
+  "independent_rebuild_pages_pixel_identical": [
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "overfull_boxes": 0,
+  "unresolved_citations_or_references": 0,
+  "text_bounds_by_page": [
+    {
+      "xMin": 48.96388,
+      "yMin": 54.895151,
+      "xMax": 563.046101,
+      "yMax": 713.496524
+    },
+    {
+      "xMin": 48.96388,
+      "yMin": 45.346148,
+      "xMax": 563.046131,
+      "yMax": 718.696183
+    },
+    {
+      "xMin": 48.96388,
+      "yMin": 62.670762,
+      "xMax": 563.046131,
+      "yMax": 710.004693
+    },
+    {
+      "xMin": 48.96389,
+      "yMin": 50.801129,
+      "xMax": 563.046091,
+      "yMax": 718.696193
+    },
+    {
+      "xMin": 48.96389,
+      "yMin": 51.003443,
+      "xMax": 563.046081,
+      "yMax": 711.224913
+    }
+  ],
+  "visual_review": "All five rendered pages inspected; no clipping, collisions, unreadable tables, or reference-layout defects observed.",
+  "warnings": "Three underfull hbox reports (keywords and final bibliography item); inherited XeTeX TU/ptm font-shape initialization warnings. Final text uses embedded Nimbus Roman and math fonts; no Type 3 fonts. No layout or font-size changes were introduced.",
+  "validation_scope": "Local checks only; no organizer-provided IEEE certification process was supplied or run."
+}

@@ -1,0 +1,26 @@
+name                                 type              encoding         emb sub uni object ID
+------------------------------------ ----------------- ---------------- --- --- --- ---------
+IHAIZV+NimbusRomNo9L-Regu            Type 1C           Custom           yes yes yes      4  0
+BZIVMZ+NimbusRomNo9L-MediItal        Type 1C           Custom           yes yes yes      5  0
+IXFAWU+NimbusRomNo9L-Medi            Type 1C           Custom           yes yes yes      6  0
+TQTHRL+CMR9                          Type 1C           Builtin          yes yes yes      7  0
+YEUUOC+CMSY9                         Type 1C           Builtin          yes yes yes      8  0
+AKHCZK+CMMI9                         Type 1C           Builtin          yes yes yes      9  0
+VDVGTR+CMSY7                         Type 1C           Builtin          yes yes yes     10  0
+CAFSZL+NimbusRomNo9L-ReguItal        Type 1C           Custom           yes yes yes     11  0
+DDIEWW+CMMI10                        Type 1C           Builtin          yes yes yes     12  0
+FKPJSN+CMMI7                         Type 1C           Builtin          yes yes yes     13  0
+PVTTLK+CMR10                         Type 1C           Builtin          yes yes yes     14  0
+JAGKKY+CMEX10                        Type 1C           Builtin          yes yes yes     15  0
+NOMARO+CMSY10                        Type 1C           Builtin          yes yes yes     16  0
+KPXLOM+CMR7                          Type 1C           Builtin          yes yes yes     21  0
+UTACNV+CMMI8                         Type 1C           Builtin          yes yes yes     22  0
+FZDNHS+CMR8                          Type 1C           Builtin          yes yes yes     23  0
+DZGKAF+CMR6                          Type 1C           Builtin          yes yes yes     24  0
+GJMHKB+CMMI6                         Type 1C           Builtin          yes yes yes     41  0
+GRPIXM+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes     29  0
+NITCSQ+CMSY8                         Type 1C           Builtin          yes yes yes     68  0
+CJTTVH+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes     46  0
+BZMHGR+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes     53  0
+BZWZEN+TimesNewRomanPS-BoldMT        CID TrueType      Identity-H       yes yes yes     73  0
+BHQLZE+TimesNewRomanPSMT             CID TrueType      Identity-H       yes yes yes     80  0

@@ -1,0 +1,173 @@
+--- historical-upload/manuscript.tex
++++ V3/manuscript.tex
+@@ -42,7 +42,7 @@
+ 
+ Solving the knapsack problem requires deciding which items to pack to maximize profit without exceeding a capacity~\cite{kellerer2004}. We can define a fixed priority rule based on criteria such as profit, weight, or the profit-to-weight ratio, and then pack items in one scan. Such a rule would be fast and readable, but its quality depends on how well the chosen criterion suits the instances.
+ 
+-A generation hyper-heuristic is an optimization technique that searches the heuristic space rather than working directly in the solution space~\cite{burke2013}. In this context, Gene Expression Programming~(GEP) is useful because its linear chromosomes decode into executable expression trees~\cite{ferreira2001} that we can translate into heuristics~(the fixed priority rules that we previously described). Prior Genetic Programming work has evolved item-ranking rules for multidimensional knapsack instances and applied them to unseen cases~\cite{drake2014}. The practical attraction is simple: an expensive offline search can produce a small formula that is cheap to inspect and reuse.
++Hyper-heuristics search over heuristics rather than directly over solutions~\cite{burke2013}. GEP encodes executable expression trees in linear chromosomes~\cite{ferreira2001}; earlier Genetic Programming work evolved reusable item-ranking rules for multidimensional knapsack~\cite{drake2014}. Recent work distinguishes several routes to automated decision making. Z\'arate-Aranda and Ortiz-Bayliss~\cite{zarate2025} train classifiers to select among four greedy knapsack rules using normalized mean profit, mean weight, and profit--weight correlation; their kNN selector illustrates learning which existing rule suits an instance. Dokeroglu et al.~\cite{dokeroglu2024} organize the broader field through a taxonomy covering heuristic selection, low-level heuristics, target problems, and parallel approaches. Liu et al.'s Evolution of Heuristics~\cite{liu2024eoh} instead evolves natural-language ideas and executable code with large language models, expanding the space of generated algorithms. Jooken et al.~\cite{jooken2023mcts} adapt Monte Carlo tree search with pruning, heuristic simulation, and beam restrictions to search individual combinatorial instances, including knapsack. These approaches differ in what is learned and when search is paid for. Our focus is offline generation of compact scoring formulae, with a fixed greedy decoder and explicit tests of their reuse, rather than per-instance tree search.
+ 
+ In 2022, Jooken et al. introduced 3,240 systematically generated knapsack problem instances that are unusually difficult for exact solvers~\cite{jooken2022}. Exact-solver difficulty does not automatically imply that a greedy priority rule will have a large solution gap, so that question needs its own experiment. This observation motivated three research questions: 
+ 
+@@ -57,7 +57,7 @@
+ and supporting artifacts for reproducing the experiments are available at\\
+ \url{https://github.com/hugomrdz/gep-kp-iscmi-2026}.}
+ 
+-The remainder of this document is as follows. Section~\ref{sec:Problem} introduces the problem and the experimental design we followed in this investigation. We present, analyze, and discuss the results in Section~\ref{sec:Results}. Finally, in Section~\ref{sec:Conclusion}, we provide the conclusion and some ideas for future work.
++
+ 
+ \section{Problem and Experimental Design}
+ \label{sec:Problem}
+@@ -132,7 +132,7 @@
+ 
+ Tuning chooses how GEP learns; training learns the expression. The irace procedure~\cite{irace2016} proposed head length, population, tournament size, elite fraction, crossover, and mutation settings. In each short trial, one candidate trained at 16,384 requests on one balanced fold of 258 or 261 training cases. We then graded its expression on all 345 validation cases, and irace received one number: mean validation gap. The 2,000 trials spanned four folds, four terminal arms, and 20 seeds. Four-arm blocks held fold and seed fixed so a setting was not rewarded for an easier arm.
+ 
+-We then ran the five survivors at the full 65,536-request budget on all 1,038 training cases, all four arms, and ten fresh paired seeds. Selection used mean validation rank across arms, then pooled gap and worst-arm gap. Table~\ref{table:Tuning} shows the chosen common setting. Only then were the training and validation sets combined. Final training produced 75 paired runs for each arm on 1,383 cases. ID, OOD, row-permutation, and transfer scores were still unseen. The second stage changed the decision: the eventual winner was only fourth among the five short-race elites and was absent from irace's optional top-three post-selection. At full budget it tied the best mean validation rank, then won the predeclared pooled-gap tie-break. The survivor check therefore protected against assuming that a setting ranked at 16,384 requests would stay best at 65,536 requests.
++We then ran the five survivors at the full 65,536-request budget on all 1,038 training cases, all four arms, and ten fresh paired seeds. Selection used mean validation rank across arms, then pooled gap and worst-arm gap. Table~\ref{table:Tuning} shows the chosen common setting. Only then were the training and validation sets combined. Final training produced 75 paired runs for each arm on 1,383 cases. ID, OOD, row-permutation, and transfer scores were still unseen.
+ 
+ \begin{table}[htb!]
+ \caption{Shared GEP parameters configured by irace.}
+@@ -159,11 +159,14 @@
+ \label{fig:Flow}
+ \end{figure*}
+ 
+-The run count was power-informed rather than copied from a 30-run convention. A pilot-paired standard deviation of 2,192$\ppm$ and a smallest effect of interest of 872$\ppm$ implied about 67 paired runs for 80\% power under the planned multiplicity; 75 leaves a small failure margin. Every arm uses the same master-seed indices. Pairing means, for example, that BASE seed 12 and FULL seed 12 use the same split and the same random-stream keys. It reduces noise in their comparison without forcing the two populations to contain the same expressions. A common tuned setup also keeps the terminal ablation focused on the available inputs, rather than mixing it with four different search methods.
+-
+-The predeclared primary contrast is FULL minus BASE on the 345-case ID test. A crossed hierarchical bootstrap resamples 75 seed blocks and 115 sibling-group blocks together for 10,000 replicates. A two-sided test uses a 90\% interval and the $\pm872\ppm$ equivalence margin. Secondary FULL-minus-CAP and FULL-minus-SCALE contrasts are multiplicity-controlled. The eight-method comparison averages stochastic runs inside each sibling group, uses a blocked Friedman test, and applies Holm-adjusted paired tests against FULL. Error bars for GEP in Fig.~\ref{fig:Headline} resample seeds and groups; fixed-rule bars resample groups only. We do not use overlap between individual error bars to test significance.
++The run count was power-informed rather than copied from a 30-run convention. A pilot-paired standard deviation of 2,192$\ppm$ and a smallest effect of interest of 872$\ppm$ implied about 67 paired runs for 80\% power under the planned multiplicity; 75 leaves a small failure margin. Every arm uses the same master-seed indices and random-stream keys. A common tuned setup keeps the ablation focused on the available terminals.
++
++The predeclared primary contrast is FULL minus BASE on the 345-case ID test. A crossed hierarchical bootstrap resamples 75 seed blocks and 115 sibling-group blocks together for 10,000 replicates. Equivalence requires the entire 90\% interval to lie within the declared $\pm872\ppm$ margin (two one-sided tests at $\alpha=0.05$). Secondary FULL-minus-CAP and FULL-minus-SCALE contrasts are multiplicity-controlled. The eight-method comparison averages stochastic runs inside each sibling group, uses a blocked Friedman test, and applies Holm-adjusted paired tests against FULL. Error bars for GEP in Fig.~\ref{fig:Headline} resample seeds and groups; fixed-rule bars resample groups only. We do not use overlap between individual error bars to test significance.
+ 
+ Before test evaluation, a machine-readable lock recorded the split, folds, seeds, selected setup, source hashes, contrast family, and figure definitions. The evaluation command refused a hash mismatch. Final runs never stopped early, and cached duplicate expressions still counted against the raw request budget. We retained checkpoints at 1,872, 4,096, 16,384, 21,280, 32,768, and 65,536 requests, along with unique-expression and timing counts. Separate random streams controlled initialization, selection, crossover, and mutation. These details treat seeds, instances, parameters, and artifacts as distinct experimental factors, following reproducibility guidance for evolutionary computation~\cite{repro2021}.
++
++
++In a separate revision-stage comparison, we reimplemented the kNN selector~\cite{zarate2025} under this Jooken protocol. R class::knn uses $k=1$ and Euclidean distance on mean/max profit, mean/max weight, and $(\rho_{p,w}+1)/2$, computed once per instance. Undefined correlation maps to 0.5. Labels maximize packed profit on the same 1,383 development cases; ties follow DEF, MAXP, MAXPW, MINW. Unlike the published class-balanced synthetic training set, we retain the Jooken distribution. All nearest-distance ties vote; tied class votes use seed 20261021 with fixed instance order. Before new evaluation, we froze source/input hashes, the four previously selected genes, and the protocol; no tuning or GEP retraining was added. We evaluate all nine methods on 345 ID and 1,249 OOD cases. Four formula-minus-kNN ID contrasts resample the 115 sibling groups 10,000 times (seed 20261022), with Bonferroni-adjusted 98.75\% intervals, conditional on these selected models.
+ 
+ \section{Results}
+ \label{sec:Results}
+@@ -177,7 +180,7 @@
+ \label{fig:Headline}
+ \end{figure*}
+ 
+-All four GEP arms had lower mean ID gaps than the four fixed rules in Fig.~\ref{fig:Headline}(a). FULL had the lowest mean, 4,905.6$\ppm$, versus 7,695.3$\ppm$ for MAXPW, closing 36.3\% of MAXPW's residual gap. The blocked FULL--MAXPW comparison remained significant after Holm correction~($p=0.0051$). This average advantage was not a win in most groups: the paired group difference had a mean of -2,789.7$\ppm$ but a median of +83.3$\ppm$, with 27 wins and 88 losses for FULL. Fewer large improvements therefore drove the mean. Metric choice also matters. FULL solved 10.67\% exactly, while MAXP solved 25.22\% exactly despite its larger mean gap; MAXPW solved 4.93\%.
++All four GEP arms had lower mean ID gaps than the fixed rules in Fig.~\ref{fig:Headline}(a). FULL closed 36.3\% of MAXPW's residual gap; the blocked comparison remained significant after Holm correction ($p=0.0051$). Yet the group difference had mean -2,789.7$\ppm$ and median +83.3$\ppm$, with only 27 wins against 88 losses. Fewer large improvements drove the mean; the exact-solution and tail metrics in Table~\ref{table:Secondary} show that this is not instance-wise dominance.
+ 
+ \begin{table}[htb!]
+ \caption{Secondary ID metrics. Gaps are in ppm; CVaR$_{.90}$ is the mean gap in the worst 10\% of cases.}
+@@ -200,32 +203,34 @@
+ \end{tabular}
+ \end{table}
+ 
+-The distributional columns explain the apparently conflicting rankings. MAXPW's median gap was only 78$\ppm$, yet its worst-decile mean was 58,548$\ppm$. FULL's median was larger at 1,118$\ppm$, but its worst-decile mean was much smaller at $24,234\ppm$. Thus, MAXPW performed well on a typical case but failed badly on a relatively small subset of difficult instances; FULL's mean advantage mainly came from controlling that tail. MAXP provides the opposite warning: it had the highest exact-solution rate, but a mean gap more than twice FULL's. No one column in Table~\ref{table:Secondary} establishes overall dominance.
+-
+-The locked primary result is more modest. FULL minus BASE was $-308.2\ppm$ with a 95\% bootstrap interval $[-640.4,112.7]\ppm$ ($p=0.1216$). Its 90\% interval, $[-589.5,28.4]\ppm$, lies inside the declared $\pm872\ppm$ margin, so FULL and BASE are practically equivalent. FULL was also equivalent to SCALE. FULL minus CAP was -546.4$\ppm$ with a 95\% interval $[-1,203.4,-28.3]\ppm$, but the ablation as a whole does not show a consistent benefit from simply adding terminals. The simpler BASE representation remains the clearest choice when expression inputs and mean quality are considered together.
++MAXPW's small median and large worst-decile mean contrast with FULL's better tail control. MAXP achieves the highest exact-solution rate despite its larger mean gap.
++
++The locked FULL-minus-BASE effect was $-308.2\ppm$, with 95\% interval $[-640.4,112.7]\ppm$ ($p=0.1216$). The 90\% interval $[-589.5,28.4]\ppm$ lies inside $\pm872\ppm$, establishing practical equivalence; FULL was also equivalent to SCALE. FULL minus CAP was -546.4$\ppm$, with 95\% interval $[-1,203.4,-28.3]\ppm$. Overall, the terminal ablation supports the simpler BASE representation rather than a consistent benefit from additional inputs.
+ 
+ Matched random-gene search helps separate evolution from alphabet size. On ID, GEP reduced mean gap relative to its matched random control by 534$\ppm$ for BASE, 655$\ppm$ for CAP, 583$\ppm$ for SCALE, and 1,148$\ppm$ for FULL; all four paired intervals excluded zero. Evolution therefore contributed beyond drawing valid expressions from each alphabet. Only 10 of the 300 GEP models were ranking-equivalent to MAXPW on the fixed probes~(eight CAP and two FULL), so most runs did not merely rediscover the density order.
+ 
+ Table~\ref{table:Expressions} shows one rule per arm. Selection used development data only: among models within one group-level standard error of the best train-plus-validation mean, we chose the shortest expressed region and then a fixed lexical and seed tie-break. These are executable forms, not symbolic claims that protected division behaves like ordinary division at zero.
+ 
+ \begin{table}[htb!]
+-\caption{Development-selected representative expressions.}
++\caption{Previously development-selected rules and revision comparators. ID means are for individual rules.}
+ \label{table:Expressions}
+ \centering
+ %\setlength{\tabcolsep}{3.5pt}
+-\begin{tabular}{rc}
+-\toprule
+-\textbf{Arm} & \textbf{Item score} \\
+-\midrule
+-BASE & $\pdiv(W,P^2-P)+P(O+2W)$ \\
+-CAP & $W-\pdiv(W,(1-P)(K+P))$ \\
+-SCALE & $\pdiv(\pdiv(W,PL)-O,2W-1)$ \\
+-FULL & $\pdiv(1-2\pdiv(K,P),(1-L)(P+T))$ \\
+-\bottomrule
+-\end{tabular}
+-\end{table}
+-
+-Their expressed-region lengths were 15, 11, 13, and 17 symbols for BASE, CAP, SCALE, and FULL, respectively. The formulas are short enough to audit and run without an evolutionary system, but "interpretable" does not mean that each one reduces to a familiar rule such as profit density. BASE visibly uses the row-position terminal $O$, while FULL uses the new $K$, $T$, and $L$ inputs. That inspection also makes the later order-sensitivity result less surprising.
++\begin{tabular}{rlr}
++\toprule
++\textbf{Rule} & \textbf{Item score} & \textbf{ID ppm} \\
++\midrule
++BASE-020 & $\pdiv(W,P^2-P)+P(O+2W)$ & 3,705 \\
++CAP-008 & $W-\pdiv(W,(1-P)(K+P))$ & 3,657 \\
++SCALE-042 & $\pdiv(\pdiv(W,PL)-O,2W-1)$ & 4,404 \\
++FULL-071 & $\pdiv(1-2\pdiv(K,P),(1-L)(P+T))$ & 3,306 \\
++MAXPW & $p_i/w_i$ & 7,695 \\
++kNN & Selected fixed rule & 7,810 \\
++\bottomrule
++\end{tabular}
++\end{table}
++
++The expressed regions contain 15, 11, 13, and 17 symbols. These individual rules differ from the 75-run averages in Fig.~\ref{fig:Headline}. Their ID differences from kNN are -4,105, -4,153, -3,406, and -4,504$\ppm$ (BASE, CAP, SCALE, FULL); adjusted 98.75\% intervals are $[-7907,-827]$, $[-8446,-494]$, $[-7859,409]$, and $[-8355,-1174]\ppm$. SCALE's interval crosses zero. kNN has a better ID median (47$\ppm$) than every selected formula (782--1,911$\ppm$). Pooled OOD means are 3,640, 3,499, 3,413, and 3,498$\ppm$, versus 8,565 for kNN and 10,192 for MAXPW.
+ 
+ \subsection{Generalization, Budget, and Robustness}
+ \label{sec:Generalization}
+@@ -272,20 +277,20 @@
+ \subsection{Discussion}
+ \label{sec:Discussion}
+ 
+-The main result has two parts. First, GEP found formulas with substantially smaller average gaps than the fixed rules on held-out and extrapolated Jooken cases. The matched random control shows that evolutionary selection mattered. Second, the richer FULL alphabet did not meaningfully improve the predeclared primary comparison with BASE. A result can therefore support the learning method while rejecting the proposed representation improvement.
+-
+-The mean advantage over MAXPW needs care. FULL lost on most sibling groups but avoided several large gaps. It was better for mean loss, not for every instance or exact-solution frequency. A user prioritizing the median or exact recovery might choose differently.
+-
+-Tuning reduced the risk of an arbitrary parameter choice, but this study did not define a formal untuned control. The selected survivor had a pooled validation gap of 5,486$\ppm$; four alternatives scored 5,540, 5,555, 5,672, and 6,908$\ppm$. Three were close, and one was clearly weaker. It is therefore fair to say that tuning protected the experiment from a poor setting, but not to claim an exact counterfactual gain. Validation is selection data after repeated use; only the sealed test supplies the final evidence.
+-
+-Other limits are direct. We previously inspected the Jooken collection; the row-order audit found sensitivity; the alphabets differ in size; and the frozen rules failed zero-shot Pisinger transfer. A next study should train and validate on Pisinger classes or on a deliberately mixed benchmark, then compare domain-specific and multi-domain rules under the same protocol. Retraining may help, but the present data cannot say by how much or whether it would surpass MAXPW.
++The original study supports learning compact Jooken rules, while rejecting a meaningful FULL-over-BASE representation benefit. The additional comparison supports lower selected-rule mean gaps than the reimplemented kNN selector for three formulae, conditional on the fixed models and Jooken development distribution. SCALE's interval and kNN's better median prevent a uniform superiority claim.
++
++The mean advantages reflect protection against large gaps, not success on most groups or dominance in exact recovery. Applications prioritizing the median or exact solutions may prefer another rule.
++
++Tuning reduced the risk of an arbitrary setting, but we did not define a formal untuned control. The five full-budget survivors varied in validation quality; their comparison supports the selection procedure, not an exact counterfactual gain from tuning. Validation remains selection data after repeated use.
++
++Limits remain: prior inspection of Jooken, row-order sensitivity, unequal alphabet sizes, and failed zero-shot Pisinger transfer. Retraining on Pisinger or mixed benchmarks needs a separate locked study; these data cannot predict its benefit or whether it would surpass MAXPW.
+ 
+ \section{Conclusion and Future Work}
+ \label{sec:Conclusion}
+ 
+-GEP can evolve short, inspectable priority expressions with lower held-out mean gaps than DEF, MAXP, MAXPW, and MINW on the hard Jooken collection. The result held up across new item-count and capacity levels from that generator and benefited from evolutionary search rather than random expression sampling. The proposed capacity and scale terminals, however, did not improve the simpler BASE representation by a practically meaningful amount in the primary test. The cost, row-order sensitivity, skewed win pattern, and failed zero-shot transfer keep the conclusion narrow: these are useful learned Jooken rules, not universal knapsack heuristics.
+-
+-Future work will investigate order-invariant representations and decoders to remove the dependence on the original item ordering. We also plan to train and evaluate domain-specific and multi-domain rules on mixed Jooken and Pisinger benchmarks under the same locked protocol. Finally, we could explore adaptive or ensemble strategies to select among complementary evolved rules based on instance characteristics.
++GEP evolved inspectable rules with lower held-out mean gaps than four fixed rules on hard Jooken instances, with gains across new parameter levels and over random search. The richer terminals did not meaningfully improve BASE. Three selected formulae also improve mean gap over the revision kNN comparator, under the stated training distribution and conditional inference. Computation cost, order sensitivity, uneven wins, and failed transfer restrict these findings to the tested family.
++
++Future work will study order-invariant representations and decoders, domain-specific and multi-domain training on mixed Jooken/Pisinger benchmarks, and adaptive selection among complementary learned rules under locked evaluation.
+ 
+ \begin{thebibliography}{00}
+ 
+@@ -310,6 +315,33 @@
+ vol. 43, no. 9/10, pp. 1500--1511, 2014,
+ doi: 10.1108/K-09-2013-0201.
+ 
++\bibitem{zarate2025}
++J. E. Z\'arate-Aranda and J. C. Ortiz-Bayliss,
++``Machine-learning-based hyper-heuristics for solving the knapsack problem,''
++\emph{Pattern Recognit. Lett.}, vol. 196, pp. 338--343, 2025,
++doi: 10.1016/j.patrec.2025.03.011.
++
++\bibitem{dokeroglu2024}
++T. Dokeroglu, T. Kucukyilmaz, and E.-G. Talbi,
++``Hyper-heuristics: A survey and taxonomy,''
++\emph{Comput. Ind. Eng.}, vol. 187, Art. no. 109815, 2024,
++doi: 10.1016/j.cie.2023.109815.
++
++\bibitem{liu2024eoh}
++F. Liu \emph{et al.},
++``Evolution of heuristics: Towards efficient automatic algorithm
++design using large language model,''
++in \emph{Proc. 41st Int. Conf. Mach. Learn. (ICML)},
++ser. Proceedings of Machine Learning Research, vol. 235,
++2024, pp. 32201--32223.
++
++\bibitem{jooken2023mcts}
++J. Jooken, P. Leyman, T. Wauters, and P. De Causmaecker,
++``Exploring search space trees using an adapted version of Monte Carlo
++tree search for combinatorial optimization problems,''
++\emph{Comput. Oper. Res.}, vol. 150, Art. no. 106070, 2023,
++doi: 10.1016/j.cor.2022.106070.
++
+ \bibitem{jooken2022}
+ J. Jooken, P. Leyman, and P. De Causmaecker, ``A new class of hard problem
+ instances for the 0--1 knapsack problem,'' \emph{Eur. J. Oper. Res.},

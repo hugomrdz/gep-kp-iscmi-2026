@@ -1,0 +1,124 @@
+{
+  "frozen_utc": "2026-10-22T05:12:06.510365+00:00",
+  "inherited_verification": {
+    "locked_sources": 50,
+    "original_lock_sha256": "344e3afc3f8c095cec3bccf42c5c4a8cfcfc4ccb7e4856cc64e66d14c4c6e213",
+    "reference_results": 20
+  },
+  "input_sha256": {
+    "data/knapsack.zip": "68ef9b6be17fbc37f303a250aa79cacfcbe7167d5f0b83f8f96c60d666f0fb26",
+    "results/confirmatory/evaluations_jooken_v2.csv.gz": "75d05bd5f0368f4d96b3860ef72d844dd88c81409532a34e437351eaa84d96cc",
+    "results/models_v2.csv.gz": "95076ad90ddb5184293cacbcbcc672e594fddc62c5a319f82277333a08975337",
+    "results/representative_expressions_v2.csv": "920837970d755fcce696cb6a08ed179cc75ff1308dfd0d15335c33f7219b6f02",
+    "results/split_manifest_v2.csv": "f2f4552cc4370120b049858a79fe742d312af171f2c51c07d67f9ee0698ffa98",
+    "revision_comparison/results/development_features_labels.csv": "c857f6def2c999c6a5673ac80111283c5bf78f93ed1249f85f81792fab438e05",
+    "revision_comparison/results/development_metadata.json": "75673e2e58adef7fe45381f5e799383cbe7e71d90cad53bf7c09c3ea6c5fbcf1",
+    "revision_comparison/results/development_rule_outcomes.csv.gz": "dd4241d7995fa7546248c0909b488373f42f52312e585a71fc1c6b7c4885f034"
+  },
+  "models": [
+    {
+      "arm": "BASE",
+      "gene": "+/*W-P+*P+OPPWW000000",
+      "model_id": "GEP-BASE-020",
+      "run": 20
+    },
+    {
+      "arm": "CAP",
+      "gene": "-W/W*-+1PKP000000KWO1",
+      "model_id": "GEP-CAP-008",
+      "run": 8
+    },
+    {
+      "arm": "SCALE",
+      "gene": "/-+/O-WW*W1PL00001PL0",
+      "model_id": "GEP-SCALE-042",
+      "run": 42
+    },
+    {
+      "arm": "FULL",
+      "gene": "/-*-/-+1/KP1LPTKP1LKK",
+      "model_id": "GEP-FULL-071",
+      "run": 71
+    }
+  ],
+  "protocol": {
+    "classifier": "R class::knn(k=1,l=0,prob=TRUE,use.all=TRUE); Euclidean distance",
+    "comparator": "Reimplementation of Zarate-Aranda and Ortiz-Bayliss (2025) under the existing Jooken protocol",
+    "controls": [
+      "DEF",
+      "MAXP",
+      "MAXPW",
+      "MINW",
+      "kNN"
+    ],
+    "development": {
+      "groups": 461,
+      "instances": 1383,
+      "partitions": [
+        "train",
+        "validation"
+      ]
+    },
+    "feature_scaling": "Instance normalization only; no dataset standardization or fitted scaling",
+    "features": [
+      "mean(profits)/max(profits)",
+      "mean(weights)/max(weights)",
+      "(Pearson(profits,weights)+1)/2"
+    ],
+    "inference": {
+      "contrasts": "Each of the four selected formulae minus kNN on ID",
+      "estimand": "Mean paired gap difference; group resampling only, conditional on fixed selected models",
+      "groups": 115,
+      "interval": "Percentile bootstrap, linear quantiles .00625 and .99375; Bonferroni-adjusted 98.75% for four two-sided contrasts",
+      "replicates": 10000,
+      "rng": "NumPy default_rng PCG64",
+      "seed": 20261022,
+      "siblings_per_group": 3
+    },
+    "labels": "Maximum packed integer profit from original decoder and rules; equal-profit tie order DEF, MAXP, MAXPW, MINW",
+    "loss": "1000000*(certified optimum - integer packed profit)/certified optimum; lower is better",
+    "models": [
+      "GEP-BASE-020",
+      "GEP-CAP-008",
+      "GEP-SCALE-042",
+      "GEP-FULL-071"
+    ],
+    "neighbor_ties": "R class::knn use.all=TRUE includes all boundary-distance ties; equal winning class votes use R seeded random tie resolution",
+    "prediction_order": "One call for all 1594 test instances, ascending ASCII instance name; training also ascending ASCII name",
+    "prediction_seed": 20261021,
+    "prohibited": [
+      "new hyperparameter search",
+      "new GEP training",
+      "new generated benchmark data",
+      "alteration of original permutation, unresolved-case, or Pisinger analyses"
+    ],
+    "r_rng": [
+      "Mersenne-Twister",
+      "Inversion",
+      "Rejection"
+    ],
+    "scope_limit": "Published training distribution was class-balanced synthetic data. This study uses the same unbalanced 1383 Jooken development cases as final GEP training, without rebalancing. It does not reproduce the published benchmark or claim a universal comparison.",
+    "status": "fixed before new test evaluation; not part of the original confirmatory protocol",
+    "study": "Revision-stage comparison conditional on four previously development-selected GEP formulae",
+    "test_counts": {
+      "id_test": 345,
+      "ood_c": 667,
+      "ood_n": 432,
+      "ood_nc": 150
+    },
+    "undefined_correlation": "rho=0, hence correlation feature=0.5; record a flag; clip finite rho to [-1,1] for rounding"
+  },
+  "source_sha256": {
+    "revision_comparison/__init__.py": "a10adb2c0552221df91d2cc062d43efc6f07272c360204e3d78a1cab14a3af79",
+    "revision_comparison/core.py": "274c05b84c7280c3c69c2230320f57d0b92b112f79281593c1b405bdd461fc76",
+    "revision_comparison/environment.json": "15d9c9db2473b66abc75213c434cf2f93b9739febd604a6d9147b8039f80b14b",
+    "revision_comparison/predict.R": "c41d6393fa95a274db8f525cf5399d6d3691b8b88354c9b8d5334006cae936ae",
+    "revision_comparison/protocol.json": "38ae7e8c7af3c235b08730989ba6a4bca797e7a3dbd49f30f38781f14d949c8c",
+    "revision_comparison/provenance.py": "53bf1264504a29d1a4c86b30555825dfaf8d73bbdffbd3294292d6ac7689c24a",
+    "revision_comparison/study.py": "9f2509d3e3e4678d79e55162d7da8b78ddeaf30e5a5003bc5990cb143f361af2",
+    "revision_comparison/tests/test_comparison.py": "aa5247a9ef3dd0043fb983468bc8c01480e9081cf936abb50ee48c91daa46271",
+    "src/baselines.py": "7d7e3fef47f14c1a36e7965c952bf607b62d81005f3d73b34b2037623772fd88",
+    "src/dataset.py": "f29c4b497b9ebd8c057e6cfbb4cae9dedbdc7d7da3d63d21d8c7b35034523a06",
+    "src/gep.py": "5d6a58a2860fde8fbd525079805cadf5bf89eab1cf1edfb8ada7ba87ce5d5ebf"
+  }
+}

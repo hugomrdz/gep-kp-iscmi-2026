@@ -8,7 +8,9 @@ The standalone source has the same evolutionary search, decoding, instance parsi
 
 ## Setup and validation
 
-Use Python 3.14 with the versions pinned in `requirements.txt`:
+Use Python 3.14 with the versions pinned in `requirements.txt`.
+
+The full test suite also includes the additional kNN comparison, so install R with the `class` package before running `make test`. The [comparison instructions](../revision_comparison/README.md) document its recorded environment and separate reproduction commands.
 
 ```bash
 make setup

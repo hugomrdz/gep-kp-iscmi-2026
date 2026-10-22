@@ -1,0 +1,22 @@
+{
+  "study": "Revision-stage comparison conditional on four previously development-selected GEP formulae",
+  "status": "fixed before new test evaluation; not part of the original confirmatory protocol",
+  "comparator": "Reimplementation of Zarate-Aranda and Ortiz-Bayliss (2025) under the existing Jooken protocol",
+  "features": ["mean(profits)/max(profits)", "mean(weights)/max(weights)", "(Pearson(profits,weights)+1)/2"],
+  "undefined_correlation": "rho=0, hence correlation feature=0.5; record a flag; clip finite rho to [-1,1] for rounding",
+  "feature_scaling": "Instance normalization only; no dataset standardization or fitted scaling",
+  "classifier": "R class::knn(k=1,l=0,prob=TRUE,use.all=TRUE); Euclidean distance",
+  "development": {"partitions": ["train", "validation"], "instances": 1383, "groups": 461},
+  "labels": "Maximum packed integer profit from original decoder and rules; equal-profit tie order DEF, MAXP, MAXPW, MINW",
+  "prediction_order": "One call for all 1594 test instances, ascending ASCII instance name; training also ascending ASCII name",
+  "prediction_seed": 20261021,
+  "r_rng": ["Mersenne-Twister", "Inversion", "Rejection"],
+  "neighbor_ties": "R class::knn use.all=TRUE includes all boundary-distance ties; equal winning class votes use R seeded random tie resolution",
+  "models": ["GEP-BASE-020", "GEP-CAP-008", "GEP-SCALE-042", "GEP-FULL-071"],
+  "controls": ["DEF", "MAXP", "MAXPW", "MINW", "kNN"],
+  "test_counts": {"id_test": 345, "ood_n": 432, "ood_c": 667, "ood_nc": 150},
+  "loss": "1000000*(certified optimum - integer packed profit)/certified optimum; lower is better",
+  "inference": {"contrasts": "Each of the four selected formulae minus kNN on ID", "groups": 115, "siblings_per_group": 3, "replicates": 10000, "seed": 20261022, "rng": "NumPy default_rng PCG64", "interval": "Percentile bootstrap, linear quantiles .00625 and .99375; Bonferroni-adjusted 98.75% for four two-sided contrasts", "estimand": "Mean paired gap difference; group resampling only, conditional on fixed selected models"},
+  "prohibited": ["new hyperparameter search", "new GEP training", "new generated benchmark data", "alteration of original permutation, unresolved-case, or Pisinger analyses"],
+  "scope_limit": "Published training distribution was class-balanced synthetic data. This study uses the same unbalanced 1383 Jooken development cases as final GEP training, without rebalancing. It does not reproduce the published benchmark or claim a universal comparison."
+}

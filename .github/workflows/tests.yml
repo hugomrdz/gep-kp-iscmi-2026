@@ -11,5 +11,7 @@ jobs:
         with:
           python-version: '3.14'
           cache: pip
+      - name: Install R comparator test dependency
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends r-base-core r-cran-class
       - run: make setup
       - run: make test verify-provenance paper-figures

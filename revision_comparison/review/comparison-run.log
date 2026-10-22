@@ -1,0 +1,5 @@
+           contrast  mean_difference_ppm  ci9875_low_ppm  ci9875_high_ppm  groups  replicates     seed  conditional_on_selected_models
+ GEP-BASE-020 - kNN         -4104.757677    -7907.482265      -827.001142     115       10000 20261022                            True
+  GEP-CAP-008 - kNN         -4153.161599    -8445.980892      -493.723939     115       10000 20261022                            True
+GEP-SCALE-042 - kNN         -3406.109277    -7858.855830       409.374453     115       10000 20261022                            True
+ GEP-FULL-071 - kNN         -4503.753509    -8354.653431     -1174.125375     115       10000 20261022                            True

@@ -34,3 +34,7 @@ mplconfig/
 *.synctex.gz
 *.fls
 *.fdb_latexmk
+
+# Compact revision verification evidence.
+!revision_comparison/review/*.log
+/revision_comparison/results/reproduction/

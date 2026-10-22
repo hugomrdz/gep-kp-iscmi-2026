@@ -1,0 +1,14 @@
+{
+  "data_access": "Only train and validation instance contents were loaded",
+  "elapsed_seconds": 1.0713361250000162,
+  "equal_profit_label_cases": 65,
+  "groups": 461,
+  "instances": 1383,
+  "label_counts": {
+    "DEF": 5,
+    "MAXP": 486,
+    "MAXPW": 742,
+    "MINW": 150
+  },
+  "undefined_correlation_cases": 0
+}

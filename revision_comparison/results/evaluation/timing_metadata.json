@@ -1,0 +1,11 @@
+{
+  "decoder_timing_note": "Per-formula timing includes scoring and decoding; fixed-rule timing excludes baseline score-vector construction. Descriptive only; no speed superiority claim.",
+  "evaluation_and_bootstrap_seconds": 3.1447572499982925,
+  "feature_loading_seconds": 0.44801654199909535,
+  "knn_decode_note": "kNN reuses the chosen rule's exact packing; its decoding cost is that rule's cost. R timings exclude decoding; Python phase timings include I/O.",
+  "pid": 15088,
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "r_prediction_and_reproducibility_seconds": 0.2739529169994057,
+  "started_utc": "2026-10-22T05:12:07.911732+00:00",
+  "total_including_replay_seconds": 12.250945999998294
+}

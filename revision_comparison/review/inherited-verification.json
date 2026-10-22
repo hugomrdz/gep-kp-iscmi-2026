@@ -1,0 +1,12 @@
+{
+  "scientific_lock_and_reference_tables": {
+    "locked_sources": 50,
+    "reference_results": 20,
+    "original_lock_sha256": "344e3afc3f8c095cec3bccf42c5c4a8cfcfc4ccb7e4856cc64e66d14c4c6e213"
+  },
+  "atomic_run_directories": 1138,
+  "pisinger": "PASS transfer: 31800 certificates, 31800 byte-distinct cases",
+  "models": "PASS models: 675 final models and 3900 checkpoints",
+  "evaluations": "PASS evaluations: 12 hashed evaluation files",
+  "historical_notebook": "PASS notebook: 11 executed code cells and dollar math"
+}
