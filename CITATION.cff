@@ -2,6 +2,8 @@ cff-version: 1.2.0
 message: "If you use this software or its experimental results, please cite the accompanying ISCMI 2026 paper."
 type: software
 title: "GEP-KP: Reproduction artifacts for ISCMI 2026"
+version: "paper-v2"
+date-released: 2026-10-23
 authors:
   - family-names: Moreno-Rodriguez
     given-names: Hugo Abel

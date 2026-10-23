@@ -2,11 +2,29 @@
 
 Code, results, and paper for **Beyond Fixed Greedy Rules: Evolving Interpretable Heuristics for Hard Knapsack Instances**, by Hugo Abel Moreno-Rodriguez and José Carlos Ortiz-Bayliss.
 
+The [paper-v2 release](https://github.com/hugomrdz/gep-kp-iscmi-2026/releases/tag/paper-v2) contains the corrected paper submitted to ISCMI 2026, together with its code and results.
+
 [Read the revised paper](iscmi2026_submission_HugoMoreno/VA280.pdf) · [LaTeX source and figures](iscmi2026_submission_HugoMoreno/) · [Changes from the original version](docs/revision_changes.md) · [Original paper](iscmi2026_HugoMoreno.pdf)
 
-The knapsack problem asks which items to choose when each item has a profit and a weight, and the total weight must stay below a limit. A simple approach is to sort items by a rule, such as profit divided by weight, and take each item if it still fits. We use gene expression programming (GEP), an evolutionary search method, to learn the formula used for that sorting step. The result is a short mathematical expression that can be read and reused on other instances.
+The knapsack problem asks which items to choose when each item has a profit and a weight, and the total weight must not exceed a limit. A simple approach is to sort items by a rule, such as profit divided by weight, and take each item if it still fits. We use gene expression programming (GEP), an evolutionary search method, to learn the formula used for that sorting step. The result is a short mathematical expression that can be read and reused on other instances.
 
 The study asks whether these learned rules improve solution quality, whether giving them more information helps, and how well they work outside the conditions used for training. The repository includes the unsuccessful transfer results as well as the improvements.
+
+## Get started
+
+The paper, saved results, and [executed notebook](notebooks/gep_kp_iscmi2026_v2.ipynb) can be read without installing anything. To check the code and rebuild the figures, use Python 3.14 and R with the `class` package. The commands below use a Unix shell and `make`, as available on macOS, Linux, or Windows through WSL.
+
+```sh
+git clone https://github.com/hugomrdz/gep-kp-iscmi-2026.git
+cd gep-kp-iscmi-2026
+python3 --version
+make setup
+make test verify-provenance paper-figures
+```
+
+Check that `python3 --version` reports Python 3.14 before running `make setup`. Setup creates a local `.venv` environment; the commands use it automatically. R and `class` must be installed separately for the kNN tests.
+
+This first check needs no benchmark download or training. It runs the tests, checks the original source fingerprints, and rebuilds `fig01.pdf`, `fig02.pdf`, and `fig03.pdf` from the saved tables. The instructions below cover the [additional comparison](#reproduce-the-comparison), [original experiment](#reproduce-the-original-experiment), and [paper build](#build-the-paper). The latest checks are recorded in [validation.md](docs/validation.md).
 
 ## What changed
 
@@ -35,6 +53,8 @@ The original experiment evaluates four choices of information available to a for
 | SCALE | 5,050.212 |
 | FULL | 4,905.632 |
 
+Although FULL has the lowest mean, FULL and BASE were practically equivalent within the declared margin of ±872 ppm. The original analysis therefore did not establish a meaningful benefit from adding both feature groups to BASE. The full results are in the [original summary table](results/confirmatory/method_summary_v2.csv).
+
 The new comparison instead evaluates **one previously selected formula from each group**. These numbers answer a different question and should not be read as updated 75-run averages:
 
 | Selected formula or comparison method | Mean ID gap (ppm) |
@@ -44,7 +64,9 @@ The new comparison instead evaluates **one previously selected formula from each
 | SCALE-042 | 4,403.73 |
 | FULL-071 | 3,306.09 |
 | MAXPW: sort by profit divided by weight | 7,695.29 |
-| kNN: choose a greedy rule from a nearby development instance | 7,809.84 |
+| kNN: choose a greedy rule using the nearest development cases | 7,809.84 |
+
+The [selected formulae](results/representative_expressions_v2.csv), [comparison summary](revision_comparison/results/evaluation/summary.csv), and [uncertainty intervals](revision_comparison/results/evaluation/id_contrasts.csv) are available as CSV files.
 
 All four selected formulae have lower ID mean gaps than kNN. The adjusted uncertainty intervals support that difference for BASE, CAP, and FULL; the SCALE interval includes zero. kNN has a lower median ID gap than every selected formula, so the mean results do not imply that a learned formula wins on every instance. On the combined OOD cases, all four selected formulae have lower mean gaps than kNN, while kNN has a lower mean gap than MAXPW. The OOD comparisons are descriptive.
 
@@ -74,17 +96,13 @@ Install Tectonic and Poppler, then run:
 ./iscmi2026_submission_HugoMoreno/build.sh
 ```
 
-The script produces `iscmi2026_submission_HugoMoreno/VA280.pdf`, using only files in that folder, and checks that it has five pages. It keeps temporary compilation files outside the folder. Python, R, and the benchmark downloads are not needed to build the paper. The saved PDF was also rebuilt from a separate copy of this folder and checked page by page; see the [verification report](revision_comparison/review/verification_report.md).
+Run this from the repository root. The script produces `iscmi2026_submission_HugoMoreno/VA280.pdf`, using the source and figures in that folder, and checks that it has five pages. Tectonic may download its TeX packages on the first build. The script keeps temporary compilation files outside the folder. Python, R, and the benchmark downloads are not needed to build the paper. The saved PDF was also rebuilt from a separate copy of this folder and checked page by page; see the [verification report](revision_comparison/review/verification_report.md).
 
 ## Reproduce the comparison
 
-Use Python 3.14 with the pinned packages in `requirements.txt`, and R with the `class` package. The recorded revision environment uses Python 3.14.7, R 4.6.1, class 7.3-23, and Tectonic 0.17.0. The strict comparison verification checks the recorded package and R versions; see [environment.json](revision_comparison/environment.json). Tectonic is also needed by the environment check.
+After the setup above, use R 4.6.1 with class 7.3-23 and install Tectonic. The recorded revision environment uses Python 3.14.7 and Tectonic 0.17.0; see [environment.json](revision_comparison/environment.json). The comparison checks the pinned Python packages and exact R and `class` versions, so another R version can pass the unit tests but will be rejected by comparison verification. Tectonic is needed by this environment check even when no paper is being built.
 
 ```sh
-git clone https://github.com/hugomrdz/gep-kp-iscmi-2026.git
-cd gep-kp-iscmi-2026
-make setup
-make test
 make fetch
 ./v3.sh verify-inherited
 ./v3.sh verify
@@ -92,7 +110,7 @@ make fetch
 ./v3.sh verify --output revision_comparison/results/reproduction
 ```
 
-`make fetch` restores the original data and raw results and verifies their checksums. An offline restoration option is documented in [artifacts.md](docs/artifacts.md). The comparison refuses to overwrite an existing output directory. It reuses the four saved formulae and development labels, applies the methods to the test cases, and resamples the results to estimate uncertainty. It does not repeat the expensive evolutionary search. The development labels and protocol were fixed before the new test evaluation.
+`make fetch` downloads about 2 GB of original data and raw results and verifies their checksums. Allow at least 5 GB of free space for the bundles, restored files, and working outputs, in addition to the Python environment. An offline restoration option is documented in [artifacts.md](docs/artifacts.md). The comparison refuses to overwrite an existing output directory; use another unused path with `--output` for a later run. It reuses the four saved formulae and development labels, applies the methods to the test cases, and resamples the results to estimate uncertainty. It does not repeat the expensive evolutionary search. The development labels and protocol were fixed before the new test evaluation.
 
 The [comparison instructions](revision_comparison/README.md) explain the three features, tie handling, seeds, grouped bootstrap, and saved outputs. `./v3.sh table` regenerates the standalone Table IV snippet from the recorded results; the manuscript already contains the table.
 
@@ -100,7 +118,7 @@ The [comparison instructions](revision_comparison/README.md) explain the three f
 
 There are three levels of work:
 
-1. **Regenerate figures:** after `make setup`, run `make paper-figures`. This reads the compact tables already in Git and writes `fig01.pdf`, `fig02.pdf`, and `fig03.pdf` at the repository root.
+1. **Regenerate figures:** after `make setup`, run `make paper-figures`. This reads the compact tables already in Git and writes `fig01.pdf`, `fig02.pdf`, and `fig03.pdf` at the repository root. The paper build uses its saved copies in the submission folder.
 2. **Recompute statistics from saved evaluations:** run `make fetch`, `make verify`, `make reproduce`, `make notebook`, and `python3 scripts/check_reference_results.py`. This includes the original item-order and transfer analyses. Missing evaluations cause an error.
 3. **Train and evaluate again:** create an independent replication workspace with `scripts/new_replication.py` and follow [reproduction.md](docs/reproduction.md). This can take many hours. Running a resumable training command in the completed repository would reuse its saved runs.
 

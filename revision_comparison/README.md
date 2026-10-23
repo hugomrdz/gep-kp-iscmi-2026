@@ -4,26 +4,28 @@ This additional analysis reimplements Zárate-Aranda and Ortiz-Bayliss (2025) un
 
 ## Reproduce
 
-From the repository/V3 root, install Python 3.14, R with package `class`, Tectonic, and Poppler. The recorded versions are in [environment.json](environment.json). The original Python pins are unchanged:
+Run the commands from the repository root after cloning it. Use Python 3.14, R 4.6.1 with `class` 7.3-23, and Tectonic. The recorded versions are in [environment.json](environment.json). Verification requires the exact pinned Python packages and recorded R and `class` versions. Tectonic must be available for the environment check; Poppler is only needed to build the paper.
 
 ```sh
-python3 -m venv .venv
-.venv/bin/python -m pip install -r requirements.txt
+make setup
 ./v3.sh test
+make fetch
 ./v3.sh verify-inherited
 ./v3.sh verify
-./v3.sh table
-./v3.sh paper
 ```
 
-In the public repository, first restore the unchanged `artifacts-v1` inputs with `make fetch` (see the existing artifact documentation). The author V3 copy already contains them. To recompute the additional study without replacing the reviewed results:
+`make fetch` restores the unchanged `artifacts-v1` inputs before verification. It downloads about 2 GB; allow at least 5 GB of free space for the bundles, restored files, and working outputs, in addition to the Python environment. For offline restoration, see [artifacts.md](../docs/artifacts.md). The test command works without these downloads.
+
+To recompute the additional study:
 
 ```sh
 ./v3.sh run --output revision_comparison/results/reproduction
 ./v3.sh verify --output revision_comparison/results/reproduction
 ```
 
-`run` refuses existing output directories. Scientific outcomes, features, predictions, summaries, and bootstrap samples should agree; timings and run manifests will differ. `./v3.sh table` regenerates `revision_comparison/table_iv.tex` from the reviewed results. The manuscript embeds that table so the submission package needs no external file.
+`run` refuses existing output directories. For a later run, choose another unused path with `--output` and use that same path for verification. Scientific outcomes, features, predictions, summaries, and bootstrap samples should agree; timings and run manifests will differ.
+
+`./v3.sh table` regenerates `revision_comparison/table_iv.tex` from the reviewed results. `./v3.sh paper` rebuilds the five-page PDF and requires Tectonic and Poppler. The manuscript embeds the table so the submission package needs no external file.
 
 The historical sequence was `./v3.sh prepare`, tests, `./v3.sh freeze`, `./v3.sh run`, `./v3.sh verify`, then `./v3.sh table`. `prepare` reads only training/validation cases. `freeze` records protocol, source, input, selected-gene, development-artifact, and runtime hashes before test evaluation. These commands refuse to overwrite the existing development artifacts or lock. Preserve this freeze when reproducing the study.
 
